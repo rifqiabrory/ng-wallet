@@ -19,8 +19,6 @@ export class CustomersComponent implements OnInit {
 
   getCustomers() : void {
     this.customerService.getCustomers()
-      .subscribe(heroes => this.customers = heroes.slice(1, 5));
+      .subscribe(heroes => this.customers = heroes.slice(0, 5));
   }
-
-
 }

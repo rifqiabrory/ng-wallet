@@ -21,7 +21,6 @@ export class DashboardComponent implements OnInit {
   getCustomers() :void {
     this.customerService.getCustomers()
       .subscribe(customers => this.customers = customers.slice(1, 5));
-    throw new Error("Method not implemented.");
   }
 
  

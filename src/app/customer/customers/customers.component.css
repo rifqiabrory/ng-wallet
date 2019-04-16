@@ -1,4 +1,35 @@
-.heroes {
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color:#f5f5f5;}
+.btn a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+.btn a:visited, a:link {
+  color: #607d8b;
+}
+.btn a:hover {
+  color: #039be5;
+  background-color: #cfd8dc;
+}
+.btn a.active {
+  color: #039be5;
+}
+
+/* .heroes {
     margin: 0 0 2em 0;
     list-style-type: none;
     padding: 0;
@@ -47,4 +78,4 @@
     text-align: right;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
-  }
+  } */
