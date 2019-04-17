@@ -1,6 +1,6 @@
-# NgWallet
+# Wallet App With Angular 7
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+![Preview](https://github.com/rifqiabrory/ng-wallet/blob/master/img-ng-wallet.png)
 
 ## Development server
 
