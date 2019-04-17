@@ -1,17 +1,35 @@
-<div>
+<div id="create-new">
     <h2>Create New Customer</h2>
-    <div>
-      <div class="form-group">
-        <label>First Name</label>
-          <input type="text" class="form-control" placeholder="Firstname">
-      </div>
-      <div class="form-group">
-        <label>Last Name</label>
-          <input type="text" class="form-control" placeholder="Lastname">
-      </div>
-      <div class="form-group">
-          <label>Last Name</label>
-            <input type="date" class="form-control" placeholder="Birth Date">
+    <form>
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <label for="firstName">First Name</label>
+            <input type="email" class="form-control" id="firstname" placeholder="Firstname">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastname" placeholder="Lastname">
+          </div>
         </div>
-      <button (click)="goBack()">Back</button>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="birthDate">Birth Date</label>
+            <input type="date" class="form-control" id="birthdate" placeholder="mm/dd/yyyy">
+          </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Username">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mr-3">Create</button>
+        <button type="button" class="btn btn-light" (click)="goBack()">Back</button>
+      </form>
 </div>

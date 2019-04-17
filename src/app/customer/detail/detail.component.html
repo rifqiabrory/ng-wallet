@@ -1,5 +1,6 @@
+<div id="detail">
 <div *ngIf="customer">
-    <h2>{{customer.firstName | uppercase}} Details</h2>
+    <h2 style="text-transform: capitalize">{{customer.firstName}} Details</h2>
     <div>
       <div class="form-group">
         <label>First Name</label>
@@ -14,4 +15,5 @@
             <input type="date" class="form-control" [(ngModel)]="customer.birthDate" placeholder="Birth Date">
         </div>
       <button (click)="goBack()">Back</button>
+</div>
 </div>
