@@ -1,19 +1,23 @@
 <div id="detail">
 <div *ngIf="customer">
     <h2 style="text-transform: capitalize">{{customer.firstName}} Details</h2>
-    <div>
-      <div class="form-group">
-        <label>First Name</label>
-          <input type="text" class="form-control" [(ngModel)]="customer.firstName" placeholder="Firstname">
-      </div>
-      <div class="form-group">
-        <label>Last Name</label>
-          <input type="text" class="form-control" [(ngModel)]="customer.lastName" placeholder="Lastname">
-      </div>
-      <div class="form-group">
-          <label>Last Name</label>
-            <input type="date" class="form-control" [(ngModel)]="customer.birthDate" placeholder="Birth Date">
+    <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="firstName">First Name</label>
+          <input type="email" class="form-control" [(ngModel)]="customer.firstName" id="firstname" placeholder="Firstname">
         </div>
-      <button (click)="goBack()">Back</button>
+        <div class="form-group col-md-2">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" [(ngModel)]="customer.lastName" id="lastname" placeholder="Lastname">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="birthDate">Birth Date</label>
+          <input type="date" class="form-control" [(ngModel)]="customer.birthDate" id="birthdate" placeholder="mm/dd/yyyy">
+        </div>
+      </div>
+    <div>
+    <button (click)="goBack()">Back</button>
 </div>
 </div>
