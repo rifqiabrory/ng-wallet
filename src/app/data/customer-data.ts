@@ -1,4 +1,4 @@
-import {Customer} from './customer-model';
+import {Customer} from '../entity/customer-model';
 
 export let Customers:Customer[] = [
     {customerNumber:1,firstName:"rifqi",lastName:"sbrory",birthDate:"2019-12-12",username:"rifqi",password:"rifqi"},

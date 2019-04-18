@@ -4,19 +4,13 @@ import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CreateComponent } from './customer/create/create.component';
-import { CustomersComponent } from './customer/customers/customers.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DetailComponent } from './customer/detail/detail.component';
 import { AccountsComponent } from './account/accounts/accounts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateComponent,
-    CustomersComponent,
     DashboardComponent,
-    DetailComponent,
     AccountsComponent
   ],
   imports: [

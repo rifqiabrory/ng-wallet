@@ -6,7 +6,7 @@ export class Customer {
     username:string;
     password:string;
 
-    constructor(customerNumber,firstName,lastName,birthDate,username,password){
+    constructor(customerNumber:number,firstName:string,lastName:string,birthDate:string,username:string,password:string){
         this.customerNumber = customerNumber;
         this.firstName = firstName;
         this.lastName = lastName;
