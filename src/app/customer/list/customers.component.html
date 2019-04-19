@@ -14,15 +14,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let customer of customers">
+      <tr *ngFor="let customer of Customers">
         <th scope="row">{{customer.customerNumber}}</th>
         <td>{{customer.firstName}}</td>
         <td>{{customer.lastName}}</td>
         <td>{{customer.birthDate}}</td>
         <td>
-          <div class="btn">
-            <button routerLink="/customer/detail/{{customer.customerNumber}}" [routerLinkActive]="['active']">Edit</button>
-          </div>
+          <button class="btn" routerLink="/customer/detail/{{customer.customerNumber}}" [routerLinkActive]="['active']">
+            <i class="fa fa-pencil-square-o"></i>
+          </button>
+          <button class="btn" (click)="delete(customer.customerNumber)">
+            <i class="fa fa-trash-o"></i>
+          </button>
         </td>
       </tr>
     </tbody>

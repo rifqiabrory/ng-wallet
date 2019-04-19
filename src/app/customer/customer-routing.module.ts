@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import {CreateComponent} from '../customer/create/create.component';
-import { CustomersComponent } from '../customer/customers/customers.component';
-import { DetailComponent } from '../customer/detail/detail.component';
 import { Routes, RouterModule } from '@angular/router';
-
+//components
+import {CreateComponent} from '../customer/create/create.component';
+import { CustomersComponent } from './list/customers.component';
+import { DetailComponent } from '../customer/detail/detail.component';
+//path config
 const customerRoutes: Routes = [
   {path: 'list' , component: CustomersComponent},
   {path: 'new' , component: CreateComponent},

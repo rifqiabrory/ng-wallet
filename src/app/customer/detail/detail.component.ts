@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {Location} from '@angular/common';
-
-import {Customer} from '../../entity/customer-model';
-import {CustomerService} from '../../services/customer.service';
-
+// Rest api service
+import {CustomerRestapiService} from '../../services/customer-restapi.service';
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
@@ -13,18 +11,31 @@ import {CustomerService} from '../../services/customer.service';
 
 export class DetailComponent implements OnInit {
 
-  customer: Customer;
+  Customer:any = {};
 
-  constructor(private route: ActivatedRoute, private customerService: CustomerService, private location: Location) { }
+  constructor(private route: ActivatedRoute,private router:Router, private restApi:CustomerRestapiService, private location: Location) { }
 
   ngOnInit() : void {
-    this.getCustomerDetail();
+    this.getCustomerDetail()
   }
 
   getCustomerDetail() : void {
-    const customerNumber = +this.route.snapshot.paramMap.get('customerNumber');
-    this.customerService.getCustomerBy(customerNumber)
-    .subscribe(customer => this.customer = customer);
+    const customerNumber = this.route.snapshot.paramMap.get('customerNumber');
+    this.restApi.getCustomerBy(customerNumber)
+    .subscribe((data:{}) => {
+      this.Customer = data["data"];
+    })
+  }
+
+  updateCustomer(){
+    if(window.confirm('are you want to update ?')){
+      const customerNumber = this.route.snapshot.paramMap.get('customerNumber');
+      this.restApi.updateCustomer(customerNumber,this.Customer)
+      .subscribe((data:{}) => {
+        this.Customer = data["data"];
+        this.router.navigate(['/customer/list'])
+      })
+    }
   }
 
   goBack() : void {

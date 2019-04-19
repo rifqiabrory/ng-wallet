@@ -1,23 +1,26 @@
 <div id="detail">
-<div *ngIf="customer">
-    <h2 style="text-transform: capitalize">{{customer.firstName}} Details</h2>
+<div *ngIf="Customer">
+    <h2 style="text-transform: capitalize">Details Name {{Customer.firstName}}</h2>
     <div class="form-row">
         <div class="form-group col-md-2">
           <label for="firstName">First Name</label>
-          <input type="email" class="form-control" [(ngModel)]="customer.firstName" id="firstname" placeholder="Firstname">
+          <input type="email" class="form-control" [(ngModel)]="Customer.firstName" name="firstname" placeholder="Firstname">
         </div>
         <div class="form-group col-md-2">
           <label for="lastName">Last Name</label>
-          <input type="text" class="form-control" [(ngModel)]="customer.lastName" id="lastname" placeholder="Lastname">
+          <input type="text" class="form-control" [(ngModel)]="Customer.lastName" name="lastname" placeholder="Lastname">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-4">
           <label for="birthDate">Birth Date</label>
-          <input type="date" class="form-control" [(ngModel)]="customer.birthDate" id="birthdate" placeholder="mm/dd/yyyy">
+          <input type="date" class="form-control" [(ngModel)]="Customer.birthDate" name="birthdate" placeholder="mm/dd/yyyy">
         </div>
       </div>
     <div>
-    <button (click)="goBack()">Back</button>
-</div>
+    <div class="mt-5">
+      <button type="submit" class="btn btn-primary mr-3" (click)="updateCustomer()">Update</button>
+      <button type="button" class="btn btn-light" (click)="goBack()">Back</button>
+    </div>
+  </div>
 </div>
