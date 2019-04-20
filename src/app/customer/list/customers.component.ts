@@ -11,7 +11,7 @@ export class CustomersComponent implements OnInit {
 
   //store data
   Customers:any=[];
-
+  getCounts = 0;
   constructor(private restApi:CustomerRestapiService) { }
   ngOnInit() {
     this.loadCustomers()
@@ -20,13 +20,13 @@ export class CustomersComponent implements OnInit {
   loadCustomers() {
     return this.restApi.getCustomers().subscribe((data: {}) => {
         this.Customers = data["data"];
+        this.getCounts = Object.keys(data).length;
     });
   }
 
   delete(customerNumber) {
     if(window.confirm('are you want to delete ?')) {
       this.restApi.deleteCustomer(customerNumber).subscribe(data => {
-        //this.Customers = data["data"]
         this.loadCustomers()
       })
     }

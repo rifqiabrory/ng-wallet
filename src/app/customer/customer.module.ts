@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
 //HttpClient Module
 import {HttpClientModule} from '@angular/common/http';
+//Datatables
+import {DataTablesModule} from 'angular-datatables';
 //Components
 import {CreateComponent} from '../customer/create/create.component';
 import { CustomersComponent } from './list/customers.component';
@@ -21,6 +23,7 @@ import { CustomerRoutingModule } from './customer-routing.module';
     CommonModule,
     FormsModule,
     HttpClientModule,
+    DataTablesModule,
     CustomerRoutingModule
   ]
 })

@@ -1,0 +1,90 @@
+<div class="container">
+  <hr class="prettyline">
+  <br>
+  <div class="text-center">
+    <h1><b>Sorry</b></h1>
+    <h3>You need to sign in or register for this service</h3>
+    <br>
+    <button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target="#signin">Sign
+      In / Register</button>
+  </div>
+  <br>
+  <hr class="prettyline">
+</div>
+<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <nav>
+            <div class="nav nav-tabs pl-3" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-signin-tab" data-toggle="tab" href="#nav-signin" role="tab" aria-controls="nav-sigin" aria-selected="true">Sign In</a>
+              <a class="nav-item nav-link" id="nav-register-tab" data-toggle="tab" href="#nav-register" role="tab" aria-controls="nav-register" aria-selected="false">Register</a>
+            </div>
+          </nav>
+      <div class="modal-body">
+          <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-signin" role="tabpanel" aria-labelledby="nav-signin-tab">
+                <form>
+                    <div class="form-group row">
+                      <label for="username" class="col-sm-3 col-form-label">Username</label>
+                      <div class="col-sm-8">
+                        <input type="text" class="form-control" name="username" placeholder="username">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="password" class="col-sm-3 col-form-label">Password</label>
+                      <div class="col-sm-8">
+                        <input type="password" class="form-control" name="password" placeholder="********">
+                      </div>
+                    </div>
+                  </form>
+                  <hr>
+                  <div class="float-right mt-4">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary ml-3">Sign In</button>
+                  </div>
+              </div>
+              <div class="tab-pane fade" id="nav-register" role="tabpanel" aria-labelledby="nav-register-tab">
+                <form>
+                  <div class="form-group row">
+                    <label for="firstname" class="col-sm-3 col-form-label">Firstname</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" name="firstname" placeholder="Firstname">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="lastname" class="col-sm-3 col-form-label">Lastname</label>
+                      <div class="col-sm-8">
+                        <input type="text" class="form-control" name="lastname" placeholder="Lastname">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="birthdate" class="col-sm-3 col-form-label">Birth Date</label>
+                      <div class="col-sm-8">
+                        <input type="date" class="form-control" name="birthdate" placeholder="Birth Date">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="username" class="col-sm-3 col-form-label">Username</label>
+                      <div class="col-sm-8">
+                        <input type="text" class="form-control" name="username" placeholder="Username">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="password" class="col-sm-3 col-form-label">Password</label>
+                      <div class="col-sm-8">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                      </div>
+                    </div>
+                </form>
+                <hr>
+                <div class="float-right mt-4">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary ml-3">Register</button>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
