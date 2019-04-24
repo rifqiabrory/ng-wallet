@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Customer} from '../entity/customer-model';
 import {Observable, throwError, pipe} from 'rxjs';
 import {retry, catchError} from 'rxjs/operators';
+import {Customer} from '../entity/customer-model';
 
 @Injectable({
   providedIn: 'root'
@@ -60,6 +60,10 @@ export class CustomerRestapiService {
       retry(1),
       catchError(this.handleError)
     )
+  }
+
+  getAuthentication(customer:Customer) : Observable<Customer>{
+    return this.http.post<Customer>(this.apiUrl + '/login/', customer);
   }
 
   handleError(error) {

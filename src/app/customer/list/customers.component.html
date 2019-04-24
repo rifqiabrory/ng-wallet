@@ -1,33 +1,34 @@
 <div id="customers">
-<button type="submit" class="btn btn-primary mb-3" routerLink="/customer/new">New Customer</button>
-<h2>List Customers <span>Records : {{getCounts}}</span></h2>
-<div class="col-md-8">
-<table class="table table-hover table-sm table-responsive-md">
-  <thead>
-      <tr>
-        <th scope="col">No. Cust</th>
-        <th scope="col">Firstname</th>
-        <th scope="col">Lastname</th>
-        <th scope="col">BirthDate</th>
-        <th scope="col">Opsi</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let customer of Customers">
-        <th scope="row">{{customer.customerNumber}}</th>
-        <td>{{customer.firstName}}</td>
-        <td>{{customer.lastName}}</td>
-        <td>{{customer.birthDate}}</td>
-        <td>
-          <button class="btn" routerLink="/customer/detail/{{customer.customerNumber}}" [routerLinkActive]="['active']">
-            <i class="fa fa-pencil-square-o"></i>
-          </button>
-          <button class="btn" (click)="delete(customer.customerNumber)">
-            <i class="fa fa-trash-o"></i>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <button type="submit" class="btn btn-primary mb-3" routerLink="/customer/new">New Customer</button>
+  <h2>List Customers</h2>
+  <div class="col-md-8">
+    <table class="table table-hover table-sm table-responsive-md">
+      <thead>
+        <tr>
+          <th scope="col">No. Cust</th>
+          <th scope="col">Firstname</th>
+          <th scope="col">Lastname</th>
+          <th scope="col">BirthDate</th>
+          <th scope="col">Opsi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of Customers">
+          <th scope="row">{{customer.customerNumber}}</th>
+          <td>{{customer.firstName}}</td>
+          <td>{{customer.lastName}}</td>
+          <td>{{customer.birthDate | date}}</td>
+          <td>
+            <button class="btn" routerLink="/customer/detail/{{customer.customerNumber}}"
+              [routerLinkActive]="['active']">
+              <i class="fa fa-pencil-square-o"></i>
+            </button>
+            <button class="btn" (click)="delete(customer.customerNumber)">
+              <i class="fa fa-trash-o"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

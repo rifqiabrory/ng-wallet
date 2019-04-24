@@ -4,10 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 //components
 import {CreateComponent} from '../account/create/create.component';
 import {AccountsComponent} from '../account/list/accounts.component';
+import { DetailComponent } from '../account/detail/detail.component';
 //path config
 const accountRoutes: Routes = [
   {path: 'new', component: CreateComponent},
-  {path: 'list', component: AccountsComponent}
+  {path: 'list', component: AccountsComponent},
+  {path: 'detail/:accountNumber', component: DetailComponent}
 ];
 
 @NgModule({

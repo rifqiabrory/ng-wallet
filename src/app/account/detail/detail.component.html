@@ -1,0 +1,32 @@
+<div id="detail">
+    <div *ngIf="Account">
+        <h2 style="text-transform: capitalize">Details Name {{Account.accountName}}</h2>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+              <label for="accountNumber">No. Account</label>
+              <input type="text" class="form-control" [(ngModel)]="Account.accountNumber" name="accountNumber" placeholder="Account Number" readonly>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="accountName">Account Name</label>
+              <input type="text" class="form-control" [(ngModel)]="Account.accountName" name="accountName" placeholder="Account Name" required>
+            </div>
+          </div>
+          <!-- <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="openDate">Opened</label>
+              <input type="text" class="form-control" [(ngModel)]="Account.openDate" name="birthdate" placeholder="mm/dd/yyyy" readonly>
+            </div>
+          </div> -->
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="balance">Balance</label>
+              <input type="text" class="form-control" [(ngModel)]="Account.balance" name="balance" placeholder="Balance" readonly>
+            </div>
+          </div>
+        <div>
+        <div class="mt-5">
+          <button type="submit" class="btn btn-primary mr-3" (click)="updateAccount()">Update</button>
+          <button type="button" class="btn btn-light" (click)="goBack()">Back</button>
+        </div>
+      </div>
+    </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // Rest api service
 import {CustomerRestapiService} from '../../services/customer-restapi.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customers',
@@ -12,8 +13,11 @@ export class CustomersComponent implements OnInit {
   //store data
   Customers:any=[];
   getCounts = 0;
-  constructor(private restApi:CustomerRestapiService) { }
+  constructor(private restApi:CustomerRestapiService, private router:Router) { }
   ngOnInit() {
+    if(localStorage.getItem("customerNumber") === null){
+      this.router.navigate(['login']);
+    }
     this.loadCustomers()
   }
 

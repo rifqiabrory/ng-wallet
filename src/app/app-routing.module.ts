@@ -9,7 +9,8 @@ const routes: Routes = [
   {path: 'login' , component: LoginComponent},
   {path: 'dashboard' , component: DashboardComponent},
   {path: 'customer' , loadChildren:'./customer/customer.module#CustomerModule'},
-  {path: 'account' , loadChildren:'./account/account.module#AccountModule'}
+  {path: 'account' , loadChildren:'./account/account.module#AccountModule'},
+  {path: 'transaction' , loadChildren: './transaction/transaction.module#TransactionModule'}
 ];
 
 @NgModule({

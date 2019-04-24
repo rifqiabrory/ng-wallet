@@ -12,7 +12,6 @@ import { CustomersComponent } from './list/customers.component';
 import { DetailComponent } from '../customer/detail/detail.component';
 //Routing
 import { CustomerRoutingModule } from './customer-routing.module';
-
 @NgModule({
   declarations: [
     CreateComponent,

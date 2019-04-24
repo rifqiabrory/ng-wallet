@@ -24,63 +24,66 @@
       <div class="modal-body">
           <div class="tab-content" id="nav-tabContent">
               <div class="tab-pane fade show active" id="nav-signin" role="tabpanel" aria-labelledby="nav-signin-tab">
-                <form>
-                    <div class="form-group row">
-                      <label for="username" class="col-sm-3 col-form-label">Username</label>
+                <form class="needs-validation" [formGroup]="form" novalidate>
+                    <div class="form-group row" [ngClass]="displayFieldCss('username')">
+                      <label for="username" class="col-sm-3 col-form-label control-label required">Username</label>
                       <div class="col-sm-8">
-                        <input type="text" class="form-control" name="username" placeholder="username">
+                        <input type="text" class="form-control" formControlName="username" [(ngModel)]="customer.username" name="username" placeholder="username">
+                        <app-error-display [displayError]="isFieldValid('username')" errorMsg="Please inform your username"></app-error-display>
                       </div>
                     </div>
-                    <div class="form-group row">
-                      <label for="password" class="col-sm-3 col-form-label">Password</label>
+                    <div class="form-group row" [ngClass]="displayFieldCss('password')">
+                      <label for="password" class="col-sm-3 col-form-label control-label required">Password</label>
                       <div class="col-sm-8">
-                        <input type="password" class="form-control" name="password" placeholder="********">
+                        <input type="password" class="form-control" formControlName="password" [(ngModel)]="customer.password" name="password" placeholder="password">
+                        <app-error-display [displayError]="isFieldValid('password')" errorMsg="Please inform your password"></app-error-display>
                       </div>
+                    </div>
+                    <hr>
+                    <div class="float-right mt-4">
+                      <!-- <p>{{message}}</p> -->
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary ml-3" [disabled]="!form.valid" (click)="getAuth()">Sign In</button>
                     </div>
                   </form>
-                  <hr>
-                  <div class="float-right mt-4">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary ml-3">Sign In</button>
-                  </div>
               </div>
               <div class="tab-pane fade" id="nav-register" role="tabpanel" aria-labelledby="nav-register-tab">
                 <form>
                   <div class="form-group row">
                     <label for="firstname" class="col-sm-3 col-form-label">Firstname</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="firstname" placeholder="Firstname">
+                      <input type="text" class="form-control" [(ngModel)]="customer.firstName" name="firstname" placeholder="Firstname">
                     </div>
                   </div>
                   <div class="form-group row">
                       <label for="lastname" class="col-sm-3 col-form-label">Lastname</label>
                       <div class="col-sm-8">
-                        <input type="text" class="form-control" name="lastname" placeholder="Lastname">
+                        <input type="text" class="form-control" [(ngModel)]="customer.lastName" name="lastname" placeholder="Lastname">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="birthdate" class="col-sm-3 col-form-label">Birth Date</label>
                       <div class="col-sm-8">
-                        <input type="date" class="form-control" name="birthdate" placeholder="Birth Date">
+                        <input type="date" class="form-control" [(ngModel)]="customer.birthDate" name="birthdate" placeholder="Birth Date">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="username" class="col-sm-3 col-form-label">Username</label>
                       <div class="col-sm-8">
-                        <input type="text" class="form-control" name="username" placeholder="Username">
+                        <input type="text" class="form-control" [(ngModel)]="customer.username" name="username" placeholder="Username">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="password" class="col-sm-3 col-form-label">Password</label>
                       <div class="col-sm-8">
-                        <input type="password" class="form-control" name="password" placeholder="Password">
+                        <input type="password" class="form-control" [(ngModel)]="customer.password" name="password" placeholder="Password">
                       </div>
                     </div>
                 </form>
                 <hr>
                 <div class="float-right mt-4">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-primary ml-3">Register</button>
+                  <button type="submit" class="btn btn-primary ml-3" (click)="create()">Register</button>
                 </div>
               </div>
             </div>

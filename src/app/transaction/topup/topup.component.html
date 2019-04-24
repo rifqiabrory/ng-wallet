@@ -1,0 +1,20 @@
+<div id="create-topup">
+    <h2>TopUp Transaction</h2>
+    <form>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <!-- <label for="anCredit">Account Credit</label> -->
+            <input type="text" class="form-control" [(ngModel)]="topup.anCredit" name="anCredit" placeholder="AccountCredit">
+          </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-5">
+              <!-- <label for="username">Ammount</label> -->
+              <input type="text" class="form-control" [(ngModel)]="topup.amount" name="amount" placeholder="Amount">
+            </div>
+        </div>
+       
+        <button type="submit" class="btn btn-primary mr-3" (click)="create()">Create</button>
+        <button type="button" class="btn btn-light" (click)="goBack()">Back</button>
+      </form>
+</div>
