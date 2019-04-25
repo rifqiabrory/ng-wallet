@@ -1,3 +1,25 @@
-<p>
-  transfer works!
-</p>
+<div id="transfer">
+  <h3>Transfer</h3>
+  <form>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <!-- <label for="anCredit">Account Credit</label> -->
+          <input type="text" class="form-control" name="accountNumber" placeholder="Account Number">
+        </div>
+      </div>
+      <div class="form-row">
+          <div class="form-group col-md-5">
+            <!-- <label for="username">Ammount</label> -->
+            <input type="text" class="form-control"  name="accountNumber" placeholder="Distination Number">
+          </div>
+      </div>
+      <div class="form-row">
+          <div class="form-group col-md-5">
+            <!-- <label for="username">Ammount</label> -->
+            <input type="number" class="form-control"  name="amount" placeholder="Amount">
+          </div>
+      </div>
+      <button type="submit" class="btn btn-primary mr-3">Transfer</button>
+      <button type="button" class="btn btn-light" (click)="goBack()">Back</button>
+    </form>
+</div>

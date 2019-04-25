@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 // Rest api service
 import {AccountRestapiService} from '../../services/account-restapi.service';
 import { Customer } from '../../entity/customer-model';
-import { Account } from 'src/app/entity/account-modal';
+import { Account } from 'src/app/entity/account-model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -36,10 +36,11 @@ export class CreateComponent implements OnInit {
     account.accountName = this.form.controls['accountName'].value;
     account.balance = this.form.controls['balance'].value;
     this.customer.customerNumber = localStorage.getItem("customerNumber");
-    account.customerNumber = this.customer;
+    account.customerNumber = this.customer.customerNumber;
 
     this.restApi.createAccount(account).subscribe((data:{}) => {
       this.account = data["data"];
+      console.log(account);
       this.router.navigate(['account/list'])
     })
   }

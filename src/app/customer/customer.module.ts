@@ -8,15 +8,13 @@ import {HttpClientModule} from '@angular/common/http';
 import {DataTablesModule} from 'angular-datatables';
 //Components
 import {CreateComponent} from '../customer/create/create.component';
-import { CustomersComponent } from './list/customers.component';
-import { DetailComponent } from '../customer/detail/detail.component';
+import {LoginComponent} from '../customer/login/login.component';
 //Routing
 import { CustomerRoutingModule } from './customer-routing.module';
 @NgModule({
   declarations: [
     CreateComponent,
-    CustomersComponent,
-    DetailComponent
+    LoginComponent
   ],
   imports: [
     CommonModule,

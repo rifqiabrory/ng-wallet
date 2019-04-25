@@ -2,19 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-transfer',
-  templateUrl: './transfer.component.html',
-  styleUrls: ['./transfer.component.css']
+  selector: 'app-detail',
+  templateUrl: './detail.component.html',
+  styleUrls: ['./detail.component.css']
 })
-export class TransferComponent implements OnInit {
+export class DetailComponent implements OnInit {
 
   constructor(private location:Location) { }
 
   ngOnInit() {
   }
 
-
-  goBack() : void {
+  goBack() : void{
     this.location.back();
   }
 }

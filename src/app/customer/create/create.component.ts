@@ -23,7 +23,7 @@ export class CreateComponent implements OnInit {
   create(customer){
     this.restApi.createCustomer(this.customer).subscribe((data:{}) => {
       this.customer = data["data"];
-      this.router.navigate(['customer/list'])
+      this.router.navigate(['auth'])
     })
   }
 

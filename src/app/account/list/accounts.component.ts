@@ -17,7 +17,7 @@ export class AccountsComponent implements OnInit {
 
   ngOnInit() {
     if(localStorage.getItem("customerNumber") === null){
-      this.router.navigate(['login']);
+      this.router.navigate(['auth']);
     }
     const cif = localStorage.getItem("customerNumber");
     this.loadAccountsBy(cif);

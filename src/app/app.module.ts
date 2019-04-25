@@ -7,15 +7,13 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './customer/login/login.component';
-import { ErrorDisplayComponent } from './error/error-display.component';
+import { NotauthComponent } from './notauth/notauth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    LoginComponent,
-    ErrorDisplayComponent
+    NotauthComponent
   ],
   imports: [
     BrowserModule,

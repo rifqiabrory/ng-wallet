@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Customer} from '../entity/customer-model';
-import {CustomerService} from '../services/customer.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,21 +10,12 @@ import { Router } from '@angular/router';
 
 export class DashboardComponent implements OnInit {
 
-  customers: Customer[] = [];
-
-  constructor(private customerService:CustomerService,private router:Router) { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
     if(localStorage.getItem("customerNumber") === null){
-      this.router.navigate(['login']);
+      this.router.navigate(['auth']);
     }
-    // this.getCustomers();
   }
-
-  // getCustomers() :void {
-  //   this.customerService.getCustomers()
-  //     .subscribe(customers => this.customers = customers.slice(1, 5));
-  // }
-
  
 }

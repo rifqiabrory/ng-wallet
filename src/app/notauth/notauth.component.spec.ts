@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ErrorDisplayComponent } from './error-display.component';
+import { NotauthComponent } from './notauth.component';
 
-describe('ErrorDisplayComponent', () => {
-  let component: ErrorDisplayComponent;
-  let fixture: ComponentFixture<ErrorDisplayComponent>;
+describe('NotauthComponent', () => {
+  let component: NotauthComponent;
+  let fixture: ComponentFixture<NotauthComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ErrorDisplayComponent ]
+      declarations: [ NotauthComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ErrorDisplayComponent);
+    fixture = TestBed.createComponent(NotauthComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

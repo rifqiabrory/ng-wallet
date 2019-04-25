@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -8,12 +7,9 @@ import { Router } from '@angular/router';
 })
 export class ListComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor() { }
 
   ngOnInit() {
-    if(localStorage.getItem("customerNumber") === null){
-      this.router.navigate(['auth']);
-    }
   }
 
 }
