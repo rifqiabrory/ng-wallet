@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 //Form Module
-import {FormsModule} from '@angular/forms';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 //HttpClient Module
 import {HttpClientModule} from '@angular/common/http';
 //Routing
@@ -21,6 +21,7 @@ import { WithdrawComponent } from '../transaction/withdraw/withdraw.component';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     TransactionRoutingModule
   ]

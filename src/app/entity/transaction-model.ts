@@ -4,6 +4,16 @@ export class Transaction {
     anDebit:number;
     anCredit:number;
     amount:number;
-    transactionType:string;
+    transactionType:number;
     accountNumber:number;
+
+    constructor(id, date, anDebit, anCredit, amount, transType, accNumber){
+        this.idTransaction = id;
+        this.date = date;
+        this.anDebit = anDebit;
+        this.anCredit = anCredit;
+        this.amount = amount;
+        this.transactionType = transType;
+        this.accountNumber = accNumber;
+    }
 }

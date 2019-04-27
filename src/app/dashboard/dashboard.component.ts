@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router } from '@angular/router';
+import { Customer } from '../entity/customer-model';
+import { CustomerRestapiService } from '../services/customer-restapi.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,12 +11,21 @@ import { Router } from '@angular/router';
 
 export class DashboardComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private restApi: CustomerRestapiService) { }
 
   ngOnInit() {
-    if(localStorage.getItem("customerNumber") === null){
-      this.router.navigate(['auth']);
-    }
+    this.loadCustomer()
   }
- 
+  
+  customer = {customerNumber:'',firstName:'',lastName:'',birthDate:'',username:'',password:''};
+  loadCustomer(){
+    const customerNumber = localStorage.getItem('customerNumber');
+    this.restApi.getCustomerBy(customerNumber).subscribe(
+      result => {
+        this.customer = result["data"];
+      }
+    );
+    
+  }
+
 }

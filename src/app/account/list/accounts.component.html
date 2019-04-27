@@ -44,9 +44,17 @@
         <div>
             <div id="accounts">
                 <div>
-                    <button type="submit" class="btn btn-primary btn-sm ml-3 mb-3" routerLink="/wallet/new">New Wallet</button>
                     <div class="float-md-right">
                         <h4 class="mr-5 mb-0">Wallets</h4>
+                    </div>
+                    <div class="form-row">
+                        <button type="submit" class="btn btn-primary btn-sm ml-3 mb-3" routerLink="/wallet/new">New Wallet</button>
+                        <div class="form-group col-md-8">
+                            <select (change)="loadWalletsBy($event.target.value)" class="custom-select custom-select-sm">
+                                <option value="0">Select an account</option>
+                                <option [value]="selected.accountNumber" *ngFor="let selected of Accounts">{{selected.accountNumber}} - {{selected.accountName}}</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="col pl-0">
@@ -54,17 +62,21 @@
                         <thead>
                             <tr>
                                 <th scope="col">Wallet ID</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Created</th>
+                                <th scope="col">Wallet Name</th>
+                                <th scope="col">Created</th>    
                                 <th scope="col">Opsi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="col">000000</th>
-                                <th scope="col">Account Name</th>
-                                <th scope="col">0098</th>
-                                <th scope="col">Opsi</th>
+                            <tr *ngFor="let row of Wallets">
+                                <th scope="row">{{row.idWallet}}</th>
+                                <td>{{row.description}}</td>
+                                <td>{{row.createdDate | date}}</td>
+                                <td>
+                                    <button class="btn" (click)="deleteWallet(row.idWallet)">
+                                        <i class="fa fa-trash-o"></i>
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

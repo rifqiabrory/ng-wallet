@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 //Form Module
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //HttpClient Module
 import { HttpClientModule } from '@angular/common/http';
 //Datatables
@@ -23,9 +23,11 @@ import {AccountRoutingModule} from './account-routing.module';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     DataTablesModule,
     AccountRoutingModule
-  ]
+  ],
+  providers:[DatePipe]
 })
 export class AccountModule { }

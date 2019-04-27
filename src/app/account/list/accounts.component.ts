@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // Rest api service
 import {AccountRestapiService} from '../../services/account-restapi.service';
+import { WalletRestapiService } from '../../services/wallet-restapi.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,20 +14,34 @@ export class AccountsComponent implements OnInit {
   //store data
   Accounts:any=[];
   
-  constructor(private restApi:AccountRestapiService,private router:Router) { }
+  //store data
+  Wallets:any=[];
+
+  constructor(private restWApi:WalletRestapiService,private restApi:AccountRestapiService,private router:Router) { }
 
   ngOnInit() {
-    if(localStorage.getItem("customerNumber") === null){
-      this.router.navigate(['auth']);
-    }
     const cif = localStorage.getItem("customerNumber");
     this.loadAccountsBy(cif);
   }
-
+  //load data account by customerNumber
   loadAccountsBy(customerNumber) {
     return this.restApi.getAccountsBy(customerNumber).subscribe((data: {}) => {
         this.Accounts = data["data"];
     });
+  }
+  //load data wallets by accounNumber
+  loadWalletsBy(accountNumber) {
+    return this.restWApi.getWalletsBy(accountNumber).subscribe((data: {}) => {
+        this.Wallets = data["data"];
+    });
+  }
+
+  deleteWallet(walletId) {
+    if(window.confirm('are you want to delete ?')) {
+      this.restWApi.deleteWalletBy(walletId).subscribe(data => {
+        this.router.navigate(['account/list'])
+      })
+    }
   }
 
   delete(accountNumber) {

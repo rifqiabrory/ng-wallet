@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import {Transaction} from '../entity/transaction-model';
+import {TransactionType} from '../entity/transaction-type-model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,8 @@ export class TransactionRestapiService {
     })
   }
 
-  getTransactions() : Observable<Transaction> {
-    return this.http.get<Transaction> (this.apiUrl + '/transactions')
+  getTransactionsBy(accountNumber) : Observable<Transaction> {
+    return this.http.get<Transaction> (this.apiUrl + '/transactions/' + accountNumber)
     .pipe(
       retry(1),
       catchError(this.handleError)
@@ -43,6 +44,14 @@ export class TransactionRestapiService {
 
   withdraw(accountNumber) : Observable<Transaction> {
     return this.http.post<Transaction>(this.apiUrl + '/transaction/withdraw', JSON.stringify(accountNumber), this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+
+  getTransactionType() : Observable<TransactionType> {
+    return this.http.get<TransactionType> (this.apiUrl + '/transactiontype')
     .pipe(
       retry(1),
       catchError(this.handleError)

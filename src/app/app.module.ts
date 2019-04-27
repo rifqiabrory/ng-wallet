@@ -6,14 +6,16 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotauthComponent } from './notauth/notauth.component';
+import { CreateComponent } from './customer/create/create.component';
+import { LoginComponent } from './customer/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
-    NotauthComponent
+    NotauthComponent,
+    CreateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

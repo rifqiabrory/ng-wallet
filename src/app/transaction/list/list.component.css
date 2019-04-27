@@ -1,3 +1,7 @@
 #trans{
     margin-top: 50px !important;
 }
+.im-centered{
+    margin: auto;
+    max-width: 500px;
+}

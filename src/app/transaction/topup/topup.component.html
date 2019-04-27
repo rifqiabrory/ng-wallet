@@ -1,20 +1,21 @@
 <div id="topup">
     <h2>TopUp Transaction</h2>
-    <form>
+    <form [formGroup]="createFormGroup" (ngSubmit)="create()">
         <div class="form-row">
-          <div class="form-group col-md-4">
-            <!-- <label for="anCredit">Account Credit</label> -->
-            <input type="text" class="form-control" [(ngModel)]="topup.anCredit" name="anCredit" placeholder="Account Number">
+          <div class="form-group col-md-5">
+              <select formControlName="anCredit" name="anCredit" class="custom-select custom-select-md">
+                  <option value="">Select an account</option>
+                  <option [value]="selected.accountNumber" *ngFor="let selected of Accounts">{{selected.accountNumber}} - {{selected.accountName}}</option>
+                </select>
           </div>
-        </div>
+      </div>
         <div class="form-row">
             <div class="form-group col-md-5">
-              <!-- <label for="username">Ammount</label> -->
-              <input type="number" class="form-control" [(ngModel)]="topup.amount" name="amount" placeholder="Amount">
+              <input type="number" class="form-control" formControlName="amount" name="amount" placeholder="Amount">
             </div>
         </div>
        
-        <button type="submit" class="btn btn-primary mr-3" (click)="create()">Create</button>
+        <button type="submit" class="btn btn-primary mr-3" [disabled]="!createFormGroup.valid">Create</button>
         <button type="button" class="btn btn-light" (click)="goBack()">Back</button>
       </form>
 </div>

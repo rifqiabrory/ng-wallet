@@ -1,19 +1,20 @@
 <div id="new-wallet">
     <h3>Create New Wallet</h3>
-    <form>
+    <form [formGroup]="createFormGroup">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+            <select formControlName="accountNumber" name="accountNumber" class="custom-select custom-select-md">
+                <option value="">Select an account</option>
+                <option [value]="selected.accountNumber" *ngFor="let selected of account">{{selected.accountNumber}}</option>
+            </select>
+        </div>
+      </div>
         <div class="form-row">
           <div class="form-group col-md-4">
-            <!-- <label for="anCredit">Account Credit</label> -->
-            <input type="text" class="form-control" name="accountNumber" placeholder="Wallet Name">
+            <input type="text" class="form-control" formControlName="description" name="description" placeholder="Wallet Name">
           </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-5">
-              <!-- <label for="username">Ammount</label> -->
-              <input type="number" class="form-control"  name="amount" placeholder="Amount">
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary mr-3">Create</button>
+        <button type="submit" class="btn btn-primary mr-3" [disabled]="!createFormGroup.valid" (click)="createNew()">Create</button>
         <button type="button" class="btn btn-light" (click)="goBack()">Back</button>
       </form>
   </div>

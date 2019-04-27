@@ -1,25 +1,27 @@
 <div id="transfer">
   <h3>Transfer</h3>
-  <form>
+  <form [formGroup]="createFormGroup" (ngSubmit)="create()">
+    <p class="text-danger">{{message}}</p>
       <div class="form-row">
-        <div class="form-group col-md-4">
-          <!-- <label for="anCredit">Account Credit</label> -->
-          <input type="text" class="form-control" name="accountNumber" placeholder="Account Number">
+        <div class="form-group col-md-5">
+            <select formControlName="anDebit" name="anDebit" class="custom-select custom-select-md">
+              <option value="">Select an account</option>  
+              <option [value]="selected.accountNumber" *ngFor="let selected of Accounts">{{selected.accountNumber}} - {{selected.accountName}}</option>
+            </select>
         </div>
       </div>
       <div class="form-row">
           <div class="form-group col-md-5">
-            <!-- <label for="username">Ammount</label> -->
-            <input type="text" class="form-control"  name="accountNumber" placeholder="Distination Number">
+            <input type="text" class="form-control" formControlName="anCredit" name="anCredit" name="accountNumber" placeholder="Destination Number">
           </div>
       </div>
       <div class="form-row">
           <div class="form-group col-md-5">
             <!-- <label for="username">Ammount</label> -->
-            <input type="number" class="form-control"  name="amount" placeholder="Amount">
+            <input type="number" class="form-control" formControlName="amount" name="amount" placeholder="Amount">
           </div>
       </div>
-      <button type="submit" class="btn btn-primary mr-3">Transfer</button>
+      <button type="submit" class="btn btn-primary mr-3" [disabled]="!createFormGroup.valid">Transfer</button>
       <button type="button" class="btn btn-light" (click)="goBack()">Back</button>
     </form>
 </div>

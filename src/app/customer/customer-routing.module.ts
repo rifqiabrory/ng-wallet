@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 //components
-import {CreateComponent} from '../customer/create/create.component';
-import {LoginComponent} from '../customer/login/login.component';
+import { DetailComponent } from './detail/detail.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 //path config
 const customerRoutes: Routes = [
-  {path: 'register' , component: CreateComponent},
-  {path: 'login' , component: LoginComponent}
+  {path: 'profile' , component: DetailComponent},
+  {path: 'dashboard' , component: DashboardComponent},
 ];
 
 @NgModule({

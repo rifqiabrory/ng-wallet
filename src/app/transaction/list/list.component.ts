@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TransactionRestapiService } from '../../services/transaction-restapi.service';
+import { AccountRestapiService } from 'src/app/services/account-restapi.service';
 
 @Component({
   selector: 'app-list',
@@ -7,13 +9,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+  //store data
+  Accounts:any=[];
+  Transactions:any=[];
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private restApi:TransactionRestapiService,private restAApi:AccountRestapiService) { }
 
   ngOnInit() {
-    if(localStorage.getItem("customerNumber") === null){
-      this.router.navigate(['auth']);
-    }
+    const customerNumber = localStorage.getItem("customerNumber");
+    this.loadAccountsBy(customerNumber);
+  }
+
+  //load data accounts by customerNumber
+  loadAccountsBy(customerNumber) {
+    return this.restAApi.getAccountsBy(customerNumber).subscribe((data: {}) => {
+      this.Accounts = data["data"];
+    });
+  }
+
+  //load data wallets by accounNumber
+  loadTransactionsBy(accountNumber) {
+    
+    return this.restApi.getTransactionsBy(accountNumber).subscribe((data: {}) => {
+        this.Transactions = data["data"];
+    });
   }
 
 }

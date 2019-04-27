@@ -1,9 +1,10 @@
 import { Customer } from './customer-model';
 
 export class Account {
-    accountNumber:number;
+    accountNumber:any;
     accountName:string;
     openDate:string;
     balance:string;
-    customerNumber:Customer;
+    customer:Customer;
+
 }

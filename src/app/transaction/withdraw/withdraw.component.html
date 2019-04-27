@@ -1,24 +1,22 @@
 <div id="withdraw">
   <h3>Withdraw</h3>
-    <form>
+    <form [formGroup]="createFormGroup" (ngSubmit)="create()">
+        <p class="text-danger">{{message}}</p>
         <div class="form-row">
-          <div class="form-group col-md-4">
-            <select class="custom-select" name="" id="">
-                <option value="0">Select Account</option>
-                <option value="1">12141414</option>
-                <option value="2">23526236</option>
-                <option value="3">23542532</option>
-                <option value="4">43622626</option>
-            </select>
+          <div class="form-group col-md-5">
+              <select formControlName="anDebit" name="anDebit" class="custom-select custom-select-md">
+                <option value="">Select an account</option>  
+                <option [value]="selected.accountNumber" *ngFor="let selected of Accounts">{{selected.accountNumber}} - {{selected.accountName}}</option>
+              </select>
           </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
-              <input type="number" class="form-control" name="" placeholder="Amount">
+              <input type="number" class="form-control" formControlName="amount" name="amount" placeholder="Amount">
             </div>
         </div>
        
-        <button type="submit" class="btn btn-primary mr-3">Withdraw</button>
+        <button type="submit" class="btn btn-primary mr-3" [disabled]="!createFormGroup.valid">Withdraw</button>
         <button type="button" class="btn btn-light" (click)="goBack()">Back</button>
       </form>
 </div>
