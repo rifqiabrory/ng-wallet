@@ -12,6 +12,7 @@
                     <table class="table table-hover table-sm table-responsive-md">
                         <thead>
                             <tr>
+                                <th scope="col">No.</th>
                                 <th scope="col">No. Account</th>
                                 <th scope="col">Account Name</th>
                                 <th scope="col">Opened</th>
@@ -20,7 +21,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let row of Accounts">
+                            <tr *ngFor="let row of Accounts, let i = index">
+                                <th>{{i+1}}</th>
                                 <th scope="row">{{row.accountNumber}}</th>
                                 <td>{{row.accountName}}</td>
                                 <td>{{row.openDate | date}}</td>
