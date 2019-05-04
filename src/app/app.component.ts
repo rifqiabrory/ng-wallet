@@ -15,12 +15,12 @@ export class AppComponent implements OnInit,AfterViewInit,AfterContentChecked{
     this.loadCustomer();
   }
   ngAfterViewInit(): void {
-    this.customerNumber = localStorage.getItem('customerNumber');
-    this.loadCustomer();
+    //this.customerNumber = localStorage.getItem('customerNumber');
+    //this.loadCustomer();
   }
   ngAfterContentChecked(): void {
-    this.customerNumber = localStorage.getItem('customerNumber');
-    this.loadCustomer();
+    //this.customerNumber = localStorage.getItem('customerNumber');
+    //this.loadCustomer();
   }
   customerNumber;
   title = 'E-Bank';

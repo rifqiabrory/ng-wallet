@@ -21,8 +21,8 @@ export class ListComponent implements OnInit {
   }
 
   //load data accounts by customerNumber
-  loadAccountsBy(customerNumber) {
-    return this.restAApi.getAccountsBy(customerNumber).subscribe((data: {}) => {
+  loadAccountsBy(accountNumber) {
+    return this.restAApi.getAccountsBy(accountNumber).subscribe((data: {}) => {
       this.Accounts = data["data"];
     });
   }

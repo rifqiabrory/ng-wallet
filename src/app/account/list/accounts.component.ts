@@ -46,8 +46,9 @@ export class AccountsComponent implements OnInit {
 
   delete(accountNumber) {
     if(window.confirm('are you want to delete ?')) {
+      const cif = localStorage.getItem("customerNumber");
       this.restApi.deleteAccount(accountNumber).subscribe(data => {
-        this.loadAccountsBy(1095466);
+        this.loadAccountsBy(cif);
       })
     }
   }
